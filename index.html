@@ -1,39 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Location Permission Example</title>
+  <title>Auto Click Button</title>
 </head>
 <body>
 
-<button onclick="getLocation()">Share Location</button>
-
-<p id="result"></p>
+<button id="myButton" onclick="hello()">
+  Click Me
+</button>
 
 <script>
-function getLocation() {
-
-  if (!navigator.geolocation) {
-    alert("Geolocation not supported");
-    return;
-  }
-
-  navigator.geolocation.getCurrentPosition(
-    function(position) {
-
-      const lat = position.coords.latitude;
-      const lon = position.coords.longitude;
-
-      document.getElementById("result").innerHTML =
-        `Latitude: ${lat}<br>Longitude: ${lon}`;
-
-      console.log(lat, lon);
-
-    },
-    function(error) {
-      alert("Permission denied or unavailable");
-    }
-  );
+function hello() {
+  alert("Button clicked automatically!");
 }
+
+// auto click after 2 seconds
+setTimeout(() => {
+  document.getElementById("myButton").click();
+}, 2000);
 </script>
 
 </body>
